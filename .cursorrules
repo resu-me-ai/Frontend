@@ -1,0 +1,19 @@
+# Frontend — React + TypeScript + Vite
+
+## Git Workflow (IMPORTANT)
+- NEVER commit directly to main. Always: git checkout -b feature/your-change → commit → push → open PR
+- Every change, no matter how small, goes through a PR.
+
+## API Routing
+- Pipeline calls → FastAPI :8000 (getApiBase())
+- CRUD/auth/stripe calls → NestJS :3000 (getBackendBase())
+- Never hardcode port numbers — use the helper functions
+
+## Source of Truth
+- Primary source of truth is packages/frontend/ in the monorepo
+- This standalone repo is synced FROM monorepo via rsync
+
+## Stack
+- React + TypeScript + Vite (port 5173)
+- Vitest for unit tests, Playwright for e2e
+- Storybook on :6006 for component development

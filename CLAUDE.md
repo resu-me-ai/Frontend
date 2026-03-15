@@ -22,6 +22,25 @@ cd ~/startup-repos/resu-me-ai-frontend && claude
 
 ---
 
+## Git Workflow (CRITICAL)
+
+**NEVER commit directly to `main`.** Every change goes through a PR, no matter how small.
+
+```bash
+git checkout -b feature/your-change   # branch from main
+# ... make changes, commit ...
+git push -u origin feature/your-change
+gh pr create --base staging           # PR targets staging first
+```
+
+## Critical Rules
+
+1. **API routing** — `getApiBase()` → FastAPI :8000 (pipeline); `getBackendBase()` → NestJS :3000 (CRUD/auth/stripe). Never hardcode ports.
+2. **Source of truth** — `packages/frontend/` in the monorepo is primary. This standalone repo synced FROM monorepo via rsync.
+3. **Do not commit standalone-only changes** that haven't been synced back to the monorepo first.
+
+---
+
 ## Key Commands
 
 ```bash

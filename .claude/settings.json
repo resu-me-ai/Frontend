@@ -1,0 +1,11 @@
+{
+  "enabledPlugins": {
+    "context7@claude-plugins-official": true,
+    "github@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "stripe@claude-plugins-official": true,
+    "agent-sdk-dev@claude-code-plugins": true,
+    "sanity-plugin@claude-plugins-official": true,
+    "postman@claude-plugins-official": true
+  }
+}

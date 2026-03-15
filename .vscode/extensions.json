@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "eamodio.gitlens",
+    "GitHub.vscode-pull-request-github",
+    "humao.rest-client",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "ms-python.pylint",
+    "ms-azuretools.vscode-docker",
+    "streetsidesoftware.code-spell-checker",
+    "oderwat.indent-rainbow",
+    "christian-kohler.path-intellisense",
+    "gruntfuggly.todo-tree"
+  ]
+}

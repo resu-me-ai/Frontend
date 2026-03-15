@@ -42,3 +42,8 @@ coverage
 
 *storybook.log
 storybook-static
+.claude/settings.local.json
+
+# Claude Code symlinked skills (machine-local)
+.claude/skills/
+.claude/tool_registry.json
