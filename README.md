@@ -40,6 +40,17 @@ pnpm exec tsc --noEmit    # Type-check only
 pnpm run lint             # ESLint
 ```
 
+## Testing
+
+```bash
+# Unit + component tests (no setup needed)
+pnpm test
+
+# Storybook integration tests (requires Playwright — one-time setup)
+pnpm exec playwright install chromium
+pnpm run test:storybook
+```
+
 ## Architecture
 
 ### Component hierarchy (Atomic Design)
