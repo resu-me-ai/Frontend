@@ -1,0 +1,38 @@
+[
+  {
+    "id": "q_000",
+    "bulletId": "role_0.bullet_0",
+    "resumeQuote": "30% reduction on support call volumes",
+    "mainQuestion": "Your bullet mentions a 30% reduction in support calls. Can you tell me more about how you measured this and what the baseline was?"
+  },
+  {
+    "id": "q_001",
+    "bulletId": "role_0.bullet_1",
+    "resumeQuote": "AI model integration focused on impactful user journeys",
+    "mainQuestion": "Can you describe the specific AI/ML techniques used and the measurable impact on user engagement?"
+  },
+  {
+    "id": "q_002",
+    "bulletId": "role_0.bullet_2",
+    "resumeQuote": "modernizing our front-end framework with REACT and introducing Atomic Design",
+    "mainQuestion": "What was the scale of this frontend modernization and what measurable improvements resulted?"
+  },
+  {
+    "id": "q_003",
+    "bulletId": "role_0.bullet_3",
+    "resumeQuote": "improves project timeline by a factor of 3.5x",
+    "mainQuestion": "The 3.5x improvement is compelling. Can you share the before and after in concrete terms?"
+  },
+  {
+    "id": "q_004",
+    "bulletId": "role_1.bullet_0",
+    "resumeQuote": "400% improvement on project turn-around time",
+    "mainQuestion": "Can you describe the technical challenges in scaling the Assessment Engine and how you measured the 400% improvement?"
+  },
+  {
+    "id": "q_005",
+    "bulletId": "role_2.bullet_1",
+    "resumeQuote": "77,000 test prep questions",
+    "mainQuestion": "Can you describe a specific process improvement you made in managing this content at scale?"
+  }
+]
