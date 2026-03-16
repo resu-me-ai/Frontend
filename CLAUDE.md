@@ -4,6 +4,10 @@
 
 This is the standalone repo for the Resu-ME AI frontend (Vite + React + TypeScript + TailwindCSS).
 
+**Stack:** React 19, Vite 7.2, TypeScript 5.9, Tailwind CSS v4, Clerk 5.55,
+TanStack Query 5.90, React Router 7.9, Tiptap, Mixpanel, PostHog,
+Stripe, React PDF, Mammoth (DOCX parsing)
+
 **Source of truth:** `packages/frontend/` in the monorepo (`resu-me-ai/resu-me-ai-mvp`).
 This repo is synced from the monorepo via rsync after each feature merge.
 
@@ -84,18 +88,68 @@ cp .env.example .env
 
 ```
 src/
-├── components/      # Reusable UI components
-├── pages/           # Route-level page components
-├── hooks/           # Custom React hooks (usePipeline, useCheckout, etc.)
-├── contexts/        # React context providers
-├── stories/         # Storybook stories (colocated with components)
-├── lib/             # Utilities, API client
-└── types/           # TypeScript type definitions
+├── components/
+│   ├── atoms/       31 components — Button, Input, Badge, ProgressBar, etc.
+│   ├── molecules/   31 components — ChatBubble, FileDropzone, ActionItemCard, etc.
+│   ├── organisms/   45+ components — AppHeader, ConversationPanel, ResumeDocument, etc.
+│   └── templates/   18 layouts    — AnalysisScoreLayout, DashboardView, etc.
+├── pages/           20+ route-level pages — HomePage, DashboardPage, onboarding steps, etc.
+├── hooks/           Custom hooks: usePipeline, useCheckout, etc.
+├── contexts/        React context providers (resume file state)
+├── stories/         Storybook stories (colocated with components)
+├── lib/             API client (getApiBase / getBackendBase), utilities
+└── types/           TypeScript type definitions
 ```
 
 **API routing:**
 - `getApiBase()` → FastAPI (port 8000) — AI pipeline calls
 - `getBackendBase()` → NestJS (port 3000) — CRUD, auth, billing
+
+---
+
+## Key User Flows
+
+```
+1. Auth          Clerk sign-in/up; bypass via VITE_BYPASS_AUTH=true
+2. JD Submit     Paste/upload JD → POST to FastAPI
+3. Resume Upload PDF → Uint8Array; DOCX → HTML via mammoth
+4. Analysis      Poll FastAPI every 3s: V01 → V02 → V03 → complete
+5. Context       Multi-turn Q&A (V0.5): text / voice / upload modes
+6. Enhancement   Before/after bullet review + rescore
+7. Customization Layout, font, color picker
+8. Export        DOCX and PDF download
+```
+
+---
+
+## Feature Flags
+
+```bash
+VITE_PIPELINE_MODE    # Controls pipeline flow variant
+VITE_DEMO_MODE=true   # Mock data, no backend required
+VITE_BYPASS_AUTH=true # Skip Clerk auth for local dev
+```
+
+---
+
+## Testing
+
+```bash
+pnpm test                    # Vitest — unit + component tests
+pnpm run test:storybook      # Playwright — Storybook E2E (chromium required)
+pnpm run storybook           # Storybook 10 on :6006 (MCP server for Claude Code)
+# Visual regression: Chromatic (runs on CI via Storybook)
+```
+
+---
+
+## Analytics
+
+```
+Mixpanel  → event tracking across all flows
+PostHog   → session replays + feature flags
+Both initialized on app mount; fire on every major flow step.
+```
 
 ---
 
